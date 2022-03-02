@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * { box-sizing: border-box }
+    body {
+      margin: 0;
+      padding: 8px;
+      height: 100vh;
+      display: grid;
+      gap: 8px;
+      grid-template-rows: 1fr 1fr;
+    }
+    .editor {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .preview {
+      display: flex;
+    }
+    textarea, iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    textarea {
+      resize: none;
+    }
+    iframe {
+      border: 1px solid WindowFrame;
+    }
+  </style>
+</head>
+<body>
+  <div class="editor">
+    <textarea name="html" id="html" placeholder="html">&lt;div id=app&gt;import.meta.url = &lt;/div&gt;
+&lt;script type=module src=main.js&gt;&lt;/script&gt;</textarea>
+    <textarea name="js" id="js" placeholder="js">app.textContent += import.meta.url</textarea>
+  </div>
+  <div class="preview">
+    <iframe tabindex="-1" id="target"></iframe>
+  </div>
+  <pre id="log" style="display: none;"></pre>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
